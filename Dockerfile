@@ -13,6 +13,10 @@ RUN apt-get update \
 # Create non-root user
 RUN useradd -m actionuser
 
+# Add the user to the sudoers file to allow passwordless sudo
+RUN echo "actionuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/actionuser \
+  && chmod 0440 /etc/sudoers.d/actionuser
+
 WORKDIR /home/actionuser
 
 # Copy the entrypoint
