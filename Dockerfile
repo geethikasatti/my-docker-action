@@ -18,10 +18,6 @@ WORKDIR /home/actionuser
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Change ownership of the /github directory to the non-root user
-# This is crucial for actions that write to GitHub-provided directories
-# like 'github/file_commands' or 'github/workspace'.
-RUN chown -R actionuser:actionuser /github
 
 # Run as non-root
 USER actionuser
