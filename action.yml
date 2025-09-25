@@ -1,0 +1,19 @@
+name: "Greet (Docker)"
+description: "A tiny demo Docker action that greets and outputs the time"
+author: "Geethika Satti"
+inputs:
+  who:
+    description: "geethika"
+    required: true
+    default: "World"
+outputs:
+  time:
+    description: "The UTC time when the greeting ran"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.who }}
+branding:
+  icon: "zap"
+  color: "blue"
