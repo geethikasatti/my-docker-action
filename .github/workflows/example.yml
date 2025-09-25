@@ -1,0 +1,17 @@
+name: Test Docker Action
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run local container action
+        id: greet
+        uses: ./   # uses the current repo root's action
+        with:
+          who: Geethika
+
+      - name: Show step output
+        run: echo "Action ran at ${{ steps.greet.outputs.time }}"
