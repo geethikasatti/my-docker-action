@@ -1,6 +1,12 @@
 #!/bin/bash
+
+# Change ownership of the /github directory to the non-root user using sudo
+sudo chown -R actionuser:actionuser /github
+
+# Set shell options for safer scripting
 set -euo pipefail
 
+# Your original script logic starts here
 WHO="${1:-World}"
 
 # Example work the action does:
@@ -19,3 +25,4 @@ else
 fi
 
 # Exit normally (0).
+exit 0
